@@ -1,0 +1,51 @@
+<header class="masthead bg-primary text-white text-center">
+  <h1 class="text-uppercase mb-2 mt-0">List of Movies</h1>
+  <table class="tg">
+    <tr>
+      <th class="tg-uhkr">Movie No:</th>
+      <th class="tg-uhkr" colspan="1">Title</th>
+      <th class="tg-uhkr" colspan="1">Director</th>
+      <th class="tg-uhkr" colspan="1">Actors Name</th>
+      <th class="tg-uhkr" colspan="1">Genre</th>
+      <th class="tg-uhkr" colspan="1">Country</th>
+      <th class="tg-uhkr" colspan="1">Language</th>
+      <th class="tg-uhkr" colspan="1">Link</th>
+      <th class="tg-uhkr" colspan="1">Rating</th>
+      <th class="tg-uhkr" colspan="1">Year</th>
+      <th class="tg-uhkr" colspan="1">Plot Keywords</th>
+      <th class="tg-uhkr" colspan="1">Budget</th>
+    </tr>
+    <ng-container *ngFor="let movie of movieList; let i=index">
+      <tr *ngIf="i<=endIndex && i>=startIndex">
+        <td class="tg-yzt1">{{i+1}}</td>
+        <td class="tg-yzt1">{{movie.movie_title}}</td>
+        <td class="tg-yzt1">{{movie.director_name}}</td>
+        <td class="tg-yzt1">{{movie.actor_1_name}}, {{movie.actor_2_name}}</td>
+        <td class="tg-yzt1">{{movie.genres}}</td>
+        <td class="tg-yzt1">{{movie.country}}</td>
+        <td class="tg-yzt1">{{movie.language}}</td>
+        <td class="tg-yzt1">
+          <a href="{{movie.movie_imdb_link}}">IMDb Link</a>
+        </td>
+        <td class="tg-yzt1">{{movie.content_rating}}</td>
+        <td class="tg-yzt1">{{movie.title_year}}</td>
+        <td class="tg-yzt1">{{movie.plot_keywords}}</td>
+        <td class="tg-yzt1">{{movie.budget | currency: 'USD' | lowercase }}</td>
+      </tr>
+    </ng-container>
+  </table>
+  <div>
+    <div class="pagination mt-4">
+      <a (click)="changePage(pageNumber-1,'dec')">&laquo;</a>
+      <ng-container *ngFor="let movie of totalPage; let i=index">
+        <a [ngClass]="{'active':i==pageNumber-1}" (click)="changePage(i+1)" *ngIf="i<pageNumber+4 && i>=pageNumber-5">
+          {{i+1}}
+        </a>
+      </ng-container>
+      <a (click)="changePage(pageNumber+1,'inc')">&raquo;</a>
+    </div>
+  </div>
+  <!-- {{startIndex}} {{endIndex}} {{this.totalPage.length}}
+  {{pageNumber}} -->
+  <button class="btn" routerLink="/">Back</button>
+</header>
