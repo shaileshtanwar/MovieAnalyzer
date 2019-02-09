@@ -1,6 +1,7 @@
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg  {border-collapse:collapse;border-spacing:0;overflow-x: scroll;
+  overflow-y: hidden;}
+.tg td{font-family:Arial, sans-serif;font-size:13px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg th{font-family:Arial, sans-serif;font-size:13px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
 .tg .tg-yzt1{background-color:#efefef;vertical-align:top}
 .tg .tg-uhkr{background-color:#ffce93}
 .tg .tg-i6eq{background-color:#ffccc9;vertical-align:top}
@@ -27,3 +28,39 @@
   }
   
   .pagination a:hover:not(.active) {background-color: #ddd;}
+
+  .overflow{
+    text-overflow: ellipsis; 
+  }
+
+
+
+/* div { margin: 20px; } */
+.styled-select {
+   background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+   height: 29px;
+   overflow: hidden;
+   width: 240px;
+}
+
+.styled-select select {
+   background: transparent;
+   border: none;
+   font-size: 14px;
+   height: 29px;
+   padding: 5px; /* If you add too much padding here, the options won't show in IE */
+   width: 268px;
+}
+
+
+.semi-square {
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+   display: -webkit-inline-box;
+}
+.green   { background-color: #4CAF50; }
+.img-size{
+  width: 30px;
+}
+

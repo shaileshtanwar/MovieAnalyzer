@@ -1,27 +1,52 @@
 <header class="masthead bg-primary text-white text-center">
   <h1 class="text-uppercase mb-2 mt-0">List of Movies</h1>
+  <!-- <form [formGroup]="filterFormGroup">
+    Filter By:
+    <div class="styled-select green semi-square">
+      <select formControlName="filterBy" aria-placeholder="select">
+        <option *ngFor="let col of columns" [value]="col">{{col }}</option>
+      </select>
+    </div>
+    <input type="text" formControlName="text" />
+    <span *ngIf="filterErrorMsg">error</span>
+  </form> -->
   <table class="tg">
     <tr>
       <th class="tg-uhkr">Movie No:</th>
       <th class="tg-uhkr" colspan="1">Title</th>
       <th class="tg-uhkr" colspan="1">Director</th>
       <th class="tg-uhkr" colspan="1">Actors Name</th>
-      <th class="tg-uhkr" colspan="1">Genre</th>
-      <th class="tg-uhkr" colspan="1">Country</th>
-      <th class="tg-uhkr" colspan="1">Language</th>
+      <th class="tg-uhkr" colspan="1" (click)="sortByGenre()">Genre
+        <img *ngIf="byGenre === 'descending'" class="img-size" src="assets/up.jpg">
+        <img *ngIf="byGenre !== 'descending'" class="img-size" src="assets/down.jpg">
+      </th>
+      <th class="tg-uhkr" colspan="1" (click)="sortByCountry()">Country
+        <img *ngIf="byCountry === 'descending'" class="img-size" src="assets/up.jpg">
+        <img *ngIf="byCountry !== 'descending'" class="img-size" src="assets/down.jpg">
+      </th>
+      <th class="tg-uhkr" colspan="1" (click)="sortByLanguage()">Language
+        <img *ngIf="byLang === 'descending'" class="img-size" src="assets/up.jpg">
+        <img *ngIf="byLang !== 'descending'" class="img-size" src="assets/down.jpg">
+      </th>
       <th class="tg-uhkr" colspan="1">Link</th>
       <th class="tg-uhkr" colspan="1">Rating</th>
-      <th class="tg-uhkr" colspan="1">Year</th>
+      <th class="tg-uhkr" colspan="1" (click)="sortByYear()">Year
+          <img *ngIf="byYear === 'descending'" class="img-size" src="assets/up.jpg">
+          <img *ngIf="byYear !== 'descending'"  class="img-size" src="assets/down.jpg">
+      </th>
       <th class="tg-uhkr" colspan="1">Plot Keywords</th>
-      <th class="tg-uhkr" colspan="1">Budget</th>
+      <th class="tg-uhkr" colspan="1" (click)="sortByBudget()">Budget
+          <img *ngIf="byBudget === 'descending'" class="img-size" src="assets/up.jpg">
+          <img *ngIf="byBudget !== 'descending'"  class="img-size" src="assets/down.jpg">
+      </th>
     </tr>
-    <ng-container *ngFor="let movie of movieList; let i=index">
-      <tr *ngIf="i<=endIndex && i>=startIndex">
-        <td class="tg-yzt1">{{i+1}}</td>
+    <ng-container *ngFor="let movie of subMovieList; let i=index">
+      <tr>
+        <td class="tg-yzt1">{{startIndex+i+1}}</td>
         <td class="tg-yzt1">{{movie.movie_title}}</td>
         <td class="tg-yzt1">{{movie.director_name}}</td>
         <td class="tg-yzt1">{{movie.actor_1_name}}, {{movie.actor_2_name}}</td>
-        <td class="tg-yzt1">{{movie.genres}}</td>
+        <td class="tg-yzt1 overflow">{{movie.genres}}</td>
         <td class="tg-yzt1">{{movie.country}}</td>
         <td class="tg-yzt1">{{movie.language}}</td>
         <td class="tg-yzt1">

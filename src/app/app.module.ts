@@ -20,9 +20,8 @@ import { GridComponentService } from './grid/grid.component.service';
     BrowserModule,
     RouterModule.forRoot([
       { path: '', component: AboutComponent },
-      { path: 'grid', component: GridComponent }
-    ]
-    ),
+      { path: 'grid', component: GridComponent },
+    ]),
     HttpClientModule
   ],
   providers: [ GridComponentService],
